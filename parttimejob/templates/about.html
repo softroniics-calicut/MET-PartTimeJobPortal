@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'image/about-1.jpg' %}" type="image/x-icon">
+
+  <title>About</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+   <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.scss' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body >
+  <div class="hero_area" style="background-color: white">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="{% static 'image/about-1.jpg' %}" alt="" style="background-color: white">
+      </div>
+    </div>
+
+    <header class="header_section">
+
+
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Part Time Job</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!--<span class="navbar-toggler-icon"></span>-->
+          </button>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: black">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="service" style="color: black">Jobsection</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="trainer" style="color: black">Agencies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="aslogin" style="color: black">Login</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
+                  Register
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="agency_register" style="color: black">Agency</a></li>
+                  <li><a class="dropdown-item" href="std_register" style="color: black">Student</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!--<form class="d-flex" role="search">-->
+              <!--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+              <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
+            <!--</form>-->
+          </div>
+        </div>
+      </nav>
+    </header>
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row"style="background: transparent">
+        <div class="col-md-5 px-0">
+          <div class="img_container">
+            <div class="img-box" >
+              <img src="{% static 'image/about-1.jpg'%}" style="height: 450px ; width: 400px;background-color: white" alt="" >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 px-0">
+          <div class="detail-box" style="background-color: white">
+            <div class="heading_container ">
+              <h1>
+                About Us
+              </h1>
+            </div>
+            <p>
+              Part-time job have become more popular due to changing work preference
+              ,economic conditions , and lifestyle choices.Because of this , it connect
+              students with part-time job opportunities have become very important .
+              Those who want to earn extra income , part-time job openings in various
+              jos like web developer , app developers , and other jobs.Nowadays there
+              is no online part-time job partals available , these are useful in easy
+              to use websites , recommented job views that are in students interests .
+              As the demand of part-time jos grows . Now it is very helpful of these
+              part-time job portals.<br>
+               Part-time job have become more popular due to changing work preference
+              ,economic conditions , and lifestyle choices.Because of this , it connect
+              students with part-time job opportunities have become very important .
+              Those who want to earn extra income , part-time job openings in various
+              jos like web developer , app developers , and other jobs.Nowadays there
+              is no online part-time job partals available , these are useful in easy
+              to use websites , recommented job views that are in students interests .
+              As the demand of part-time jos grows . Now it is very helpful of these
+              part-time job portals.
+            </p>
+            <!--<div class="btn-box">-->
+              <!--<a href="">-->
+                <!--Read More-->
+              <!--</a>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- end about section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_logo">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                Part Time Job
+              </span>
+            </a>
+            <p>
+              Part-time job have become more popular due to changing work preference
+              ,economic conditions , and lifestyle choices.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Useful Link
+            </h5>
+            <ul>
+              <li>
+                <a href="">
+                  dolor sit amet, consectetur
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  magna aliqua. Ut enim ad
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  minim veniam,
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  quisdotempor incididunt r
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Contact Us
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Lorem ipsum dolor sit amet,
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+
+
+  <!-- footer section -->
+  <!--<footer class="container-fluid footer_section">-->
+    <!--<p>-->
+      <!--&copy; <span id="currentYear"></span> All Rights Reserved. Design by-->
+      <!--<a href="https://html.design/">Free Html Templates</a>-->
+    <!--</p>-->
+  <!--</footer>-->
+  <!-- footer section -->
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
+</body>
+
+</html>

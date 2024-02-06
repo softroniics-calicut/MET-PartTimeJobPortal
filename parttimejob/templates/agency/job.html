@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'image/about-1.jpg' %}" type="image/x-icon">
+
+  <title>addjob</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+   <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.scss' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <!--<img src="{% static 'image/about-2.jpg' %}" alt="">-->
+      </div>
+    </div>
+
+    <header class="header_section">
+      <!--<div class="header_top">-->
+        <!--<div class="container-fluid">-->
+          <!--<div class="contact_link-container">-->
+            <!--<a href="" class="contact_link1">-->
+              <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+              <!--<span>-->
+                <!--Lorem ipsum dolor sit amet,-->
+              <!--</span>-->
+            <!--</a>-->
+            <!--<a href="" class="contact_link2">-->
+              <!--<i class="fa fa-phone" aria-hidden="true"></i>-->
+              <!--<span>-->
+                <!--Call : +01 1234567890-->
+              <!--</span>-->
+            <!--</a>-->
+            <!--<a href="" class="contact_link3">-->
+              <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+              <!--<span>-->
+                <!--demo@gmail.com-->
+              <!--</span>-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white">Part Time Job</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+               <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="agencyhome">Home</a>
+              </li>
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Job
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'addjob' %}">Add</a></li>
+                  <li><a class="dropdown-item" href="jobaview">View</a></li>
+                </ul>
+              </li>
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                </a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="agencyview">View</a></li>
+                <li><a class="dropdown-item" href="agencyedit">Edit</a></li>
+                </ul>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'requestview' %}">Application</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'history' %}">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'aslogout' %}">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<form method="post" action="addjob" class="d-flex m-auto  p-5 flex-wrap w-50 gap-2  " >
+    {% csrf_token %}
+     <div>
+       <label class="form-label text-white ">Job Section : </label>
+       <input type="text" class="form-control" name="jobs"><br><br>
+      </div>
+      <div>
+        <label class="form-label text-white ">Location : </label>
+        <input type="text" class="form-control" name="location"><br><br>
+      </div>
+      <div>
+        <label class="form-label text-white ">Salary : </label>
+        <input type="text" class="form-control" name="salary"><br><br>
+      </div>
+      <div>
+        <label class="form-label text-white ">Description : </label>
+        <input type="text" class="form-control" name="description"><br><br>
+      </div>
+      <div class="w-50 m-auto">
+        
+        <input class="btn btn-dark w-50 " type="submit" value="Add"><br><br>
+      </div>
+    <!--{{added}}-->
+</form>
+
+<link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
+
+
+
+  <!-- end info_section -->
+
+
+
+
+  <!-- footer section -->
+  <!--<footer class="container-fluid footer_section">-->
+    <!--<p>-->
+      <!--&copy; <span id="currentYear"></span> All Rights Reserved. Design by-->
+      <!--<a href="https://html.design/">Free Html Templates</a>-->
+    <!--</p>-->
+  <!--</footer>-->
+  <!-- footer section -->
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
+
+
+
+
+</body>
+
+</html>
