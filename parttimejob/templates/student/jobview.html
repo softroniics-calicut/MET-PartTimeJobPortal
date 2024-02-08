@@ -83,16 +83,20 @@
       </nav>
     </header>
 
-
-   <div class="container-fluid" style="margin: auto;width: fit-content;">
-    <form method="post" class="d-flex w-50 flex-wrap m-auto gap-2 align-items-center   mb-2" role="search" action="{% url 'jobsearch' %}">
-      {% csrf_token %}
-      <input  type="text" class="" placeholder="Search a Job"  name="jobname"><br><br>
-      <button class="btn btn-outline-info" type="submit">Search</button>
-      <a href="{% url 'jobview' %}"><button class="btn btn-outline-info" type="submit">all</button></a>
-    </form>
-    
+    <div class="container-fluid" style="margin: auto; width: fit-content;">
+      <div class="row">
+          <form method="post" class="d-flex flex-wrap gap-2 align-items-center" role="search" action="{% url 'jobsearch' %}">
+              {% csrf_token %}
+              <input type="text" class="form-control" placeholder="Search a Job" name="jobname" required>
+              <button class="btn btn-outline-info" type="submit">Search</button>
+          </form>
+          <a href="{% url 'jobview' %}" class="ml-2">
+              <button class="btn btn-outline-info" type="submit">all</button>
+          </a>
+      </div>
   </div>
+  
+  
 <div class="container-fluid m-auto ">
     <div class="container pt- pb-3 m-auto">
         <div class="row d-flex flex-wrap gap-5 m-auto  ">

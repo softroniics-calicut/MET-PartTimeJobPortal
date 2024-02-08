@@ -56,21 +56,21 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: black">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="service" style="color: black">Jobsection</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'service' %}" style="color: black">Jobsection</a>
               </li>
                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="trainer" style="color: black">Agencies</a>
+                <a class="nav-link" aria-current="page" href="{% url 'trainer' %}" style="color: black">Agencies</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="aslogin" style="color: black">Login</a>
+                <a class="nav-link" aria-current="page" href="{% url 'aslogin' %}" style="color: black">Login</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
                   Register
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="agency_register" style="color: black">Agency</a></li>
-                  <li><a class="dropdown-item" href="std_register" style="color: black">Student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'agency_register' %}" style="color: black">Agency</a></li>
+                  <li><a class="dropdown-item" href="{% url 'std_register' %}" style="color: black">Student</a></li>
                 </ul>
               </li>
             </ul>
@@ -143,7 +143,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="info_logo">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="">
               <span>
                 Part Time Job
               </span>

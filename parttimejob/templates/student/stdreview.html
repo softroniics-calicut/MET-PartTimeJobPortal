@@ -20,15 +20,24 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
+    rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-   <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <link href="{% static 'style.css' %}" rel="stylesheet" />
   <link href="{% static 'css/style.scss' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    table {
+      width: 90% !important;
+      margin: auto;
+    }
+  </style>
 
 </head>
 
@@ -46,21 +55,23 @@
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <div class="container-fluid">
           <a class="navbar-brand" href="#" style="color: white">Part Time Job</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
+            <ul class="navbar-nav  ">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'stdhome' %}">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   Profile
                 </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="stdview">View</a></li>
-                <li><a class="dropdown-item" href="stdedit">Edit</a></li>
+                  <li><a class="dropdown-item" href="stdview">View</a></li>
+                  <li><a class="dropdown-item" href="stdedit">Edit</a></li>
                 </ul>
               </li>
 
@@ -79,49 +90,85 @@
         </div>
       </nav>
     </header>
-<h1 class="log">Review</h1>
-<div class="table-responsive">
-<table   class="table table-striped"  >
-    <thead>
-    <th>Job</th>
-    <th>Student</th>
-    <th>Resume</th>
-    <th>date</th>
-    <th>Status</th>
-    </thead>
-    <tbody>
-    {% for i in data %}
-    <tr>
-        <td>{{i.job_id.jobname}}</td>
-        <td>{{i.std_id.login_id.username}}</td>
-      <td><a href="{{i.std_id.resume}}">{{i.std_id.resume}}</a></td>
-        <td>{{i.date}}</td>
+    <h1 class="log">Applications History</h1>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <th>Job</th>
+          <th>Student</th>
+          <th>Resume</th>
+          <th>date</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{i.job_id.jobname}}</td>
+            <td>{{i.std_id.login_id.username}}</td>
+            <td>
+              <a href="{{i.std_id.resume.url}}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black"
+                  class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
+                </svg>
+              </a>
+            </td>
+            <td>{{i.date}}</td>
 
-        <td class="status-{{i.status}}">{{i.status}}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
+            <td class="status-{{i.status}}">{{i.status}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <!-- Pagination links -->
+      <div class="pagination mt-3 d-flex justify-content-end pe-5 mb-4  fw-bold text-white text-end ">
+        <span class="step-links  ">
+          {% if data.has_previous %}
+          <a class="btn btn-dark" href="?page=1">&laquo; first</a>
+          <a class="btn btn-dark" href="?page={{ data.previous_page_number }}">previous</a>
+          {% endif %}
+          {% if data.has_next %}
+
+          <!-- <a href="?page={{ data.paginator.num_pages }}" class="text-decoration-none text-white btn btn-dark ">last &raquo;</a> -->
+          {% endif %}
+          <span class="current text-dark">
+            Page {{ data.number }} of {{ data.paginator.num_pages }}.
+          </span>
+
+          {% if data.has_next %}
+
+          <a href="?page={{ data.next_page_number }}" class="text-decoration-none text-white btn btn-dark ">next</a>
+          {% endif %}
+        </span>
+      </div>
+
+    </div>
 
 
-<!-- info section -->
+    <!-- info section -->
 
 
-  <!-- end info_section -->
+    <!-- end info_section -->
 
 
-  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
 
 
-      <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
 
 </body>
+
 </html>

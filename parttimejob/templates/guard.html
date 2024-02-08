@@ -55,21 +55,21 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="service">Jobsection</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'service' %}">Jobsection</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="aslogin">Login</a>
+                <a class="nav-link" aria-current="page" href="{% url 'aslogin' %}">Login</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Register
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="agency_register">Agency</a></li>
-                  <li><a class="dropdown-item" href="std_register">Student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'agency_register' %}">Agency</a></li>
+                  <li><a class="dropdown-item" href="{% url 'std_register' %}">Student</a></li>
                 </ul>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="about">About Us</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About Us</a>
               </li>
 
             </ul>

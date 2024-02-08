@@ -20,16 +20,24 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
+    rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-   <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <link href="{% static 'style.css' %}" rel="stylesheet" />
   <link href="{% static 'css/style.scss' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
   <!-- responsive style -->
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    table {
+      width: 90% !important;
+      margin: auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,33 +54,36 @@
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <div class="container-fluid">
           <a class="navbar-brand" href="#" style="color: white">Part Time Job</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
+            <ul class="navbar-nav  ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="agencyhome">Home</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'agencyhome' %}">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   Job
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'addjob' %}">Add</a></li>
-                  <li><a class="dropdown-item" href="jobaview">View</a></li>
+                  <li><a class="dropdown-item" href="{% url 'jobaview' %}">View</a></li>
                 </ul>
               </li>
-               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   Profile
                 </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="agencyview">View</a></li>
-                <li><a class="dropdown-item" href="agencyedit">Edit</a></li>
+                  <li><a class="dropdown-item" href="{% url 'agencyview' %}">View</a></li>
+                  <li><a class="dropdown-item" href="{% url 'agencyedit' %}">Edit</a></li>
                 </ul>
               </li>
-               <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'requestview' %}">Application</a>
               </li>
               <li class="nav-item">
@@ -87,43 +98,66 @@
       </nav>
     </header>
 
-<h1 class="log">Job Details</h1>
-<div class="table-responsive ">
+    <h1 class="log">Job Details</h1>
+    <div class="table-responsive ">
 
-    <table  style="background: gray; " class="table table-striped">
+      <table style="background: gray; " class="table table-striped">
         <thead>
-        <th>Job</th>
-        <th>Location</th>
-        <th>Salary</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
+          <th>Job</th>
+          <th>Location</th>
+          <th>Salary</th>
+          <th>Description</th>
+          <th></th>
+
         </thead>
         <tbody>
-        {% for i in data %}
-        <tr>
+          {% for i in data %}
+          <tr>
 
             <td>{{i.jobname}}</td>
             <td>{{i.location}}</td>
             <td>{{i.salary}}</td>
             <td>{{i.description}}</td>
 
-            <td><a href="{% url 'editjob' jobid=i.id %}" ><button type="button" class="btn btn-outline-success" >Edit</button></a></td>
-            <td><a href="{% url 'delete' jobid=i.id %}" ><button type="button" class="btn btn-outline-danger" >Delete</button></a></td>
-        </tr>
-        {% endfor %}
+            <td><a href="{% url 'editjob' jobid=i.id %}"><button type="button"
+                  class="btn btn-outline-success">Edit</button></a>
+                  <a href="{% url 'delete' jobid=i.id %}"><button type="button"
+                  class="btn btn-outline-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
 
         </tbody>
-    </table>
-</div>
+      </table>
+
+      <!-- Pagination links -->
+      <div class="pagination mt-3 d-flex justify-content-end pe-5 mb-4  fw-bold text-white text-end ">
+        <span class="step-links  ">
+          {% if data.has_previous %}
+          <a class="btn btn-dark" href="?page=1">&laquo; first</a>
+          <a class="btn btn-dark" href="?page={{ data.previous_page_number }}">previous</a>
+          {% endif %}
+          {% if data.has_next %}
+
+          <!-- <a href="?page={{ data.paginator.num_pages }}" class="text-decoration-none text-white btn btn-dark ">last &raquo;</a> -->
+          {% endif %}
+          <span class="current text-dark">
+            Page {{ data.number }} of {{ data.paginator.num_pages }}.
+          </span>
+
+          {% if data.has_next %}
+
+          <a href="?page={{ data.next_page_number }}" class="text-decoration-none text-white btn btn-dark ">next</a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
   </div>
 
 
-</form>
-      <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
 
 
-<!-- info section -->
+
+  <!-- info section -->
 
 
   <!-- end info_section -->
@@ -133,10 +167,10 @@
 
   <!-- footer section -->
   <!--<footer class="container-fluid footer_section">-->
-    <!--<p>-->
-      <!--&copy; <span id="currentYear"></span> All Rights Reserved. Design by-->
-      <!--<a href="https://html.design/">Free Html Templates</a>-->
-    <!--</p>-->
+  <!--<p>-->
+  <!--&copy; <span id="currentYear"></span> All Rights Reserved. Design by-->
+  <!--<a href="https://html.design/">Free Html Templates</a>-->
+  <!--</p>-->
   <!--</footer>-->
   <!-- footer section -->
 
@@ -145,12 +179,16 @@
   <script src="{% static 'js/custom.js' %}"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>-->
 
 
-      <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/formstyle.css' %} ">
 
 </body>
 

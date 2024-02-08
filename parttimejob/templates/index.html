@@ -47,7 +47,7 @@
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="">
               <span>
                 PartTimeJob
               </span>
@@ -62,21 +62,21 @@
                   <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service">JobSections </a>
+                  <a class="nav-link" href="{% url 'service' %}">JobSections </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="trainer" > Agency </a>
+                  <a class="nav-link" href="{% url 'trainer' %}" > Agency </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="aslogin"> Login </a>
+                  <a class="nav-link" href="{% url 'aslogin' %}"> Login </a>
                 </li>
                   <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Register
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="agency_register">Agency</a></li>
-                  <li><a class="dropdown-item" href="std_register">Student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'agency_register' %}">Agency</a></li>
+                  <li><a class="dropdown-item" href="{% url 'std_register' %}">Student</a></li>
                 </ul>
               </li>
               </ul>
@@ -149,7 +149,7 @@
                       <!--sed do eiusmod magna aliqua. Ut enim ad minim veniam-->
                     <!--</p>-->
                     <div class="btn-box">
-                      <a href="about" class="btn-1"> About Us</a>
+                      <a href="{% url 'about' %}" class="btn-1"> About Us</a>
                       <!--<a href="contact" class="btn-2">Contact</a>-->
                     </div>
                   </div>
@@ -548,7 +548,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="info_logo">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="">
               <span>
                 Part Time Job
               </span>
@@ -560,31 +560,7 @@
         </div>
         <div class="col-md-3">
           <div class="info_links">
-            <h5>
-              Useful Link
-            </h5>
-            <ul>
-              <li>
-                <a href="">
-                  dolor sit amet, consectetur
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  magna aliqua. Ut enim ad
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  minim veniam,
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  quisdotempor incididunt r
-                </a>
-              </li>
-            </ul>
+            
           </div>
         </div>
         <div class="col-md-3">
@@ -616,15 +592,8 @@
         </div>
         <div class="col-md-3">
           <div class="info_form ">
-            <h5>
-              Newsletter
-            </h5>
-            <form action="#">
-              <input type="email" placeholder="Enter your email">
-              <button>
-                Subscribe
-              </button>
-            </form>
+
+
             <div class="social_box">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>

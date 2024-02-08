@@ -5,7 +5,7 @@ from .models import Agency
 from .models import Login1
 from .models import Job
 from .models import Application
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -130,7 +130,21 @@ def stdreview(request):
     reviewdata=Login1.objects.get(id=id)
     user=Student.objects.get(login_id=reviewdata)
     data=Application.objects.filter(std_id=user)
-    return render(request,'student/stdreview.html',{'data':data})
+    items_per_page = 5
+
+    # Use Paginator to paginate the products
+    paginator = Paginator(data, items_per_page)
+    page = request.GET.get('page', 1)
+
+    try:
+        Applications = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page
+        Applications = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver the last page of results
+        Applications = paginator.page(paginator.num_pages)
+    return render(request,'student/stdreview.html',{'data':Applications})
 
 
 
@@ -256,8 +270,20 @@ def jobaview(request):
     login_data=Login1.objects.get(id=id)
     user = Agency.objects.get(login_id=login_data)
     data= Job.objects.filter(agency_id=user)
-    print(data)
-    return render(request,'agency/jobaview.html',{'data':data})
+    items_per_page = 5
+    # Use Paginator to paginate the products
+    paginator = Paginator(data, items_per_page)
+    page = request.GET.get('page', 1)
+
+    try:
+        jobs = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page
+        jobs = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver the last page of results
+        jobs = paginator.page(paginator.num_pages)
+    return render(request,'agency/jobaview.html',{'data':jobs})
 
 def history(request):
     id = request.session['id']
@@ -266,7 +292,18 @@ def history(request):
     work = Job.objects.filter(agency_id=user)
 
     allapplication=Application.objects.filter(job_id__in= work,status='approved')
-    return render(request,'agency/history.html',{'allapplication':allapplication})
+
+    items_per_page = 5
+    paginator = Paginator(allapplication, items_per_page)
+    page = request.GET.get('page', 1)
+
+    try:
+        applications = paginator.page(page)
+    except PageNotAnInteger:
+        applications = paginator.page(1)
+    except EmptyPage:
+        applications = paginator.page(paginator.num_pages)
+    return render(request,'agency/history.html',{'allapplication':applications})
 
 def delete(request,jobid):
     id = request.session['id']
@@ -282,7 +319,18 @@ def requestview(request):
     logindata = Login1.objects.get(id=session)
     data = Agency.objects.get(login_id=logindata.id)
     allapplication=Application.objects.filter(job_id__agency_id=data).order_by('date')
-    return render(request,'agency/request.html',{'allapplication':allapplication})
+
+    items_per_page = 5
+    paginator = Paginator(allapplication, items_per_page)
+    page = request.GET.get('page', 1)
+
+    try:
+        applications = paginator.page(page)
+    except PageNotAnInteger:
+        applications = paginator.page(1)
+    except EmptyPage:
+        applications = paginator.page(paginator.num_pages)    
+    return render(request,'agency/request.html',{'allapplication':applications})
 
 def applicationrequest(request,id):
 
