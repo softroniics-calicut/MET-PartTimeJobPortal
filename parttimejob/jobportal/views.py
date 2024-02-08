@@ -86,7 +86,8 @@ def jobsearch(request):
 
 def jobview(request):
     data = Job.objects.all()
-    return render(request,'student/jobview.html',{'data':data})
+    not_booked_jobs = Job.objects.exclude(application__status='approved')
+    return render(request,'student/jobview.html',{'data':not_booked_jobs})
 
 def job_applications(request,jid):
     tem = request.session.get('id')

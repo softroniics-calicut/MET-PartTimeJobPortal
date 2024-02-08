@@ -98,19 +98,18 @@ form{
     <form method="post" action="aslogin" class="mb-5 text-center bg-dark">
       <h1 class="mx-auto text-white mt-3">Login</h1>
       {% csrf_token %}
-      <div class="mb-1">
-      
-        <input type="text" class="form-control w-50 mx-auto mt-5" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required placeholder="Username">
+      <div class="mb-1">      
+        <input type="text" class="form-control w-25 mx-auto mt-5" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required placeholder="Username">
       </div>
       <div class="mb-3">
-        <input type="password" class="form-control w-50 mx-auto mt-4" id="exampleInputPassword1" name="password" required placeholder="Password">
+        <input type="password" class="form-control w-25 mx-auto mt-4" id="exampleInputPassword1" name="password" required placeholder="Password">
       </div>
       {%if error %}
       <div class="text-danger">
        {{error}}
       </div> 
      {%endif%} 
-      <button type="submit" class="btn btn-primary m-auto w-25 mt-3">Submit</button>
+      <button type="submit" class="btn btn-primary m-auto w-25 mt-3 mb-5 ">Submit</button>
     
     </form>
 

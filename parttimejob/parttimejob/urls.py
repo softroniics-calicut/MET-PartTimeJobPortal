@@ -42,7 +42,7 @@ urlpatterns = [
     path('agencyedit', views.agencyedit),
     path('agencyview', views.agencyview),
 
-    path('aslogin', views.aslogin),
+    path('aslogin', views.aslogin, name="aslogin"),
     path('aslogout',views.aslogout,name='aslogout'),
 
     path('addjob',views.addjob,name='addjob'),

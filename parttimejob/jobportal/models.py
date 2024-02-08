@@ -32,7 +32,7 @@ class Agency(models.Model):
     # username=models.CharField(max_length=30,null=True)
     email=models.EmailField(max_length=30,null=True)
     address=models.CharField(max_length=100,null=True)
-    gender=models.CharField(max_length=30,null=True)
+    # gender=models.CharField(max_length=30,null=True)
     phone=models.IntegerField(null=True)
     image=models.FileField(null=True)
     # password=models.CharField(max_length=30,null=True)
