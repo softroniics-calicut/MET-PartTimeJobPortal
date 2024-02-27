@@ -95,7 +95,7 @@
       <table class="table table-striped">
         <thead>
           <th>Job</th>
-          <th>Student</th>
+          <th>Company</th>
           <th>Resume</th>
           <th>date</th>
           <th>Status</th>
@@ -104,7 +104,7 @@
           {% for i in data %}
           <tr>
             <td>{{i.job_id.jobname}}</td>
-            <td>{{i.std_id.login_id.username}}</td>
+            <td>{{i.job_id.agency_id.login_id.username}}</td>
             <td>
               <a href="{{i.std_id.resume.url}}" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black"
